@@ -1,0 +1,28 @@
+From 5d3ea263fbc19df41998a9ac725286453fdf7b3a Mon Sep 17 00:00:00 2001
+From: Chen Qi <Qi.Chen@windriver.com>
+Date: Fri, 16 Oct 2020 15:39:41 +0800
+Subject: [PATCH] sssd.service.in: use /run instead of /var/run
+
+Upstream-Status: Pending
+
+Signed-off-by: Chen Qi <Qi.Chen@windriver.com>
+---
+ src/sysv/systemd/sssd.service.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/sysv/systemd/sssd.service.in b/src/sysv/systemd/sssd.service.in
+index 0c515d3..8224b24 100644
+--- a/src/sysv/systemd/sssd.service.in
++++ b/src/sysv/systemd/sssd.service.in
+@@ -10,7 +10,7 @@ EnvironmentFile=-@environment_file@
+ ExecStart=@sbindir@/sssd -i ${DEBUG_LOGGER}
+ Type=notify
+ NotifyAccess=main
+-PIDFile=@localstatedir@/run/sssd.pid
++PIDFile=/run/sssd.pid
+ 
+ [Install]
+ WantedBy=multi-user.target
+-- 
+2.17.1
+
